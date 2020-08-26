@@ -1,5 +1,6 @@
 import "./styles.css";
 import * as Rx from 'rxjs'
+import * as Rxo from 'rxjs/operators'
 
 document.getElementById("app").innerHTML = `
 <h1>Hello Vanilla!</h1>
@@ -12,4 +13,9 @@ document.getElementById("app").innerHTML = `
 
 console.log("start");
 
-
+Rx.of(1,2,3,4)
+  .pipe(
+    Rxo.map(x => x * 2)
+  ).subscribe(
+    v => console.log(`v=${v}`)
+  )
